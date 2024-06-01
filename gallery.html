@@ -1,0 +1,205 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEHR</title>
+</head>
+<body>
+    <h1>Welcome to SEHR Page!</h1>
+    <p>This is a Page for Paper SEHR. More content under construction.</p >
+</body>
+
+    <title>SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction</title>
+
+    
+</html>
+ -->
+
+
+ <!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XB3PR2Y1TQ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XB3PR2Y1TQ');
+    </script>
+
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SEHR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta property="og:site_name" content="SEHR" />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:title" content="SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction" />
+    <meta property="og:description" content="This is a Page for Paper SEHR." />
+    <meta property="og:url" content="https://github.com/SmplNormalMap/3DHuman-SEHR-NIPS/" />
+<!--     <meta property="og:image" content="https://dreamfusion3d.github.io/assets/images/dreamfusion_samples.png" /> -->
+
+<!--     <meta property="article:publisher" content="https://dreamfusion3d.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DreamFusion: Text-to-3D using 2D Diffusion" />
+    <meta name="twitter:description" content="We combine neural rendering with a multi-modal text-to-2D image diffusion generative model to synthesize diverse 3D objects from text." />
+    <meta name="twitter:url" content="https://dreamfusion3d.github.io/" />
+    <meta name="twitter:image" content="https://dreamfusion3d.github.io/assets/images/dreamfusion_samples.png" /> -->
+    <!-- <meta name="twitter:site" content="" /> -->
+
+    <script src="assets/js/video_comparison.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+</head>
+ 
+
+
+    
+<style>
+  .video-gallery {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .video-gallery .video-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .video-gallery .video-column {
+    flex: 0 0 33.333%; /* Each column takes up one-third of the space */
+    padding: 10px;
+  }
+  .video-gallery video {
+    width: 100%;
+    height: auto;
+  }
+</style>
+    
+<body>
+    <div class="highlight-clean" style="padding-bottom: 10px;">
+        <div class="container" style="max-width: 768px;">
+            <h1 class="text-center">SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction</h1>
+        </div>
+    </div>
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Abstract</h2>
+                <p>
+                    <!-- <strong> -->
+                        Single-view textured human reconstruction task aims at reconstructing a 3D digital human clothed body by inputting a single-view 2D image only. As the cornerstone of AR/VR technology, this task plays a crucial role in virtual world construction. Prevailing approaches can be categorized into training and optimization-based methods, where the former is limited by the scale of 3D human body data and the latter suffers from the incorrect hallucination of 2D diffusion models. To eliminate these issues, we propose a novel SMPL normal map Equipped 3D Human Reconstruction (SEHR) framework, which integrates human prior knowledge with a pretrained large 3D reconstruction model. Without using any diffusion model, SEHR performs single-view human reconstruction with one forward propagation. To be specific, the proposed SEHR consists of two branches, SMPL Normal Map Guidance (SNMG) and SMPL Normal Map Constraint (SNMG). The former incorporates SMPL normal maps into an auxiliary network to provide improved shape guidance for human Gaussian reconstruction, the latter enhances the human body's invisible parts by constraining the model to predict an extra SMPL normal Gaussian. Extensive quantitative and qualitative experiments on two public 3D human datasets have validated the effectiveness of our proposed SEHR.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider" />
+    <div class="video-gallery" style="max-width: 768px;">
+        <h2>Example generated humans</h2>
+        <div class="video-row">
+                <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="videos/render_pred_0_0.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="videos/render_pred_0_1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="videos/render_pred_0_2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+        </div>
+
+    </div>
+
+
+    <div class="video-gallery" style="max-width: 768px;">
+        <div class="video-row">
+                <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="videos/render_pred_0_227.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="videos/render_pred_0_236.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="videos/render_pred_0_270.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+        </div>
+    </div>
+
+
+
+    
+    <div class="video-gallery" style="max-width: 768px;">
+        <div class="video-row">
+                <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="videos/render_pred_0_330.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="videos/render_pred_0_347.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="videos/render_pred_0_396.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+        </div>
+    </div>
+    <div class="container" style="max-width: 768px;">
+
+        <div class="row my-auto">
+        <a href="index.html" class="btn btn-primary btn-lg btn-search"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewbox="0 0 600 550">
+            <path fill="none" stroke="#fff" stroke-width="36" stroke-linecap="round" d="m280,278a153,153 0 1,0-2,2l170,170m-91-117 110,110-26,26-110-110"/>
+            </svg>More cases
+        </a>
+    </div>
+  </div>  
+    <hr class="divider" />
+
+    <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+    <script src="/assets/js/yall.js"></script>
+    <script>
+        yall(
+            {
+                observeChanges: true
+            }
+        );
+    </script>
+    <script src="/assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script>
+    <!-- Import the component -->
+</body>
+
+</html>
