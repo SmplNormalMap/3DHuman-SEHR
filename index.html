@@ -65,6 +65,25 @@
 </head>
 
 
+<style>
+  .video-gallery {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .video-gallery .video-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .video-gallery .video-column {
+    flex: 0 0 33.333%; /* Each column takes up one-third of the space */
+    padding: 10px;
+  }
+  .video-gallery video {
+    width: 100%;
+    height: auto;
+  }
+</style>
     
 <body>
     <div class="highlight-clean" style="padding-bottom: 10px;">
@@ -86,8 +105,8 @@
     </div>
 
     <hr class="divider" />
-    <div class="container" style="max-width: 768px;">
-        <div class="row">
+    <div class="video-gallery" style="max-width: 768px;">
+        <div class="video-row">
                 <h2>Example generated humans</h2>
 
 <!--                 <video onplay="resizeAndPlay(this)" style="height: 0px;" id="compositionalVideo" class="video lazy" autoplay loop playsinline muted>
