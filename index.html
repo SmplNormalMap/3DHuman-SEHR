@@ -124,18 +124,6 @@
     </div>
     <hr class="divider" />
     <div class="container" style="max-width: 768px;">
-        <div class="row">
-            <div class="col-sm-8">
-                <h2>Example generated objects</h2>
-                <p>DreamFusion generates objects and scenes from diverse captions. <a href="/gallery.html">Search through hundreds of generated assets in our full gallery.</a></p>
-            </div>
-            <div class="col-sm-4 my-auto">
-                <a href="/gallery.html" class="btn btn-primary btn-lg btn-search"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewbox="0 0 600 550">
-                    <path fill="none" stroke="#fff" stroke-width="36" stroke-linecap="round" d="m280,278a153,153 0 1,0-2,2l170,170m-91-117 110,110-26,26-110-110"/>
-                    </svg>Search assets
-                </a>
-            </div>
-        </div>
         <div class="row captioned_videos" id="randomVideos">
             <!-- <div class="col-4">
                 <div class="video-compare-container" style="width: 100%">
@@ -179,30 +167,7 @@
         </div>
     </div>
     <hr class="divider" />
-    <div class="container meshes" id="meshContainer" style="max-width: 768px;">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Mesh exports</h2>
-                <p>Our generated NeRF models can be exported to meshes using the marching cubes algorithm for easy integration into 3D renderers or modeling software.</p>
-            </div>
-        </div>
-    </div>
     <hr class="divider" />
-    <div class="container" style="max-width: 768px;">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>How does DreamFusion work?</h2>
-                <p>Given a caption, DreamFusion uses a text-to-image generative model called Imagen to optimize a 3D scene. We propose <strong>Score Distillation Sampling (SDS)</strong>, a way to generate samples from a diffusion model by optimizing a loss function. SDS allows us to optimize samples in an arbitrary parameter space, such as a 3D space, as long as we can map back to images differentiably. We use a 3D scene parameterization similar to Neural Radiance Fields, or NeRFs, to define this differentiable mapping. SDS alone produces reasonable scene appearance, but DreamFusion adds additional regularizers and optimization strategies to improve geometry. The resulting trained NeRFs are coherent, with high-quality normals, surface geometry and depth, and are relightable with a Lambertian shading model.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <video class="video lazy" controls muted poster="https://dreamfusion-cdn.ajayj.com/dreamfusion_overview.jpg">
-                    <source data-src="https://dreamfusion-cdn.ajayj.com/dreamfusion_overview.mp4" type="video/mp4"></source>
-                </video>
-            </div>
-        </div>
-    </div>
     <hr class="divider" />
     <div class="container" style="max-width: 768px;">
         <div class="row">
