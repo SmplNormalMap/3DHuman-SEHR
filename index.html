@@ -102,14 +102,6 @@
     </div>
 
 
-    <div class="container" style="max-width: 768px;">
-        <div class="row captioned_videos">
-            <div class="col-md-12">
-                <img src="ours_pipeline.png" alt="" style="max-width: 100%; height: auto;">
-                <h6 class="caption">The pipeline of our SEHR. Based on the RGB SHGM model, SEHR introduces an extra HGM as a side branch to extract the human body prior within the orthogonal SMPL normal maps and provide shape guidance for Gaussian learning, which we refer to as SMPL Normal Map Guidance (SNMG). Additionally, we propose using the back, left, and right views of SMPL normal maps to constrain the optimization to detail in the invisible parts of the human body, naming this operation SMPL Normal Map Constraint (SNMC). SNMG and SNMC are the key components of our method.</h6>
-            </div>
-        </div>
-    </div>
 
     
     <hr class="divider" />
@@ -489,9 +481,16 @@
     </div>
   </div>   -->
 
-
-
-
+    
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>How SEHR works</h2>
+              <img src="ours_pipeline.png" alt="" style="max-width: 100%; height: auto;">
+                <h6 class="caption">The pipeline of our SEHR. Based on the RGB SHGM model, SEHR introduces an extra HGM as a side branch to extract the human body prior within the orthogonal SMPL normal maps and provide shape guidance for Gaussian learning, which we refer to as SMPL Normal Map Guidance (SNMG). Additionally, we propose using the back, left, and right views of SMPL normal maps to constrain the optimization to detail in the invisible parts of the human body, naming this operation SMPL Normal Map Constraint (SNMC). SNMG and SNMC are the key components of our method.</h6>
+            </div>
+        </div>
+    </div>
     
     <hr class="divider" />
 
