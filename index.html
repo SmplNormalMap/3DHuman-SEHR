@@ -82,7 +82,25 @@
   }
 </style>
 
-
+<style>
+  .video-gallery-4 {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0px;
+  }
+  .video-gallery-4 .video-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .video-gallery-4 .video-column {
+    flex: 0 0 33.333%; /* Each column takes up one-third of the space */
+    padding: 0px;
+  }
+  .video-gallery-4 video {
+    width: 100%;
+    height: auto;
+  }
+</style>
     
 <body>
     <div class="highlight-clean" style="padding-bottom: 10px;">
@@ -125,6 +143,13 @@
                       <source src="meshes/gaussian_pred_0_560.glb.mp4" type="video/mp4">
                     </video>
                 </div>
+            
+                      <div class="video-column">
+                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                      <source src="meshes/gaussian_pred_0_215.glb.mp4" type="video/mp4">
+                    </video>
+                </div>
+            
         </div>
 
     </div>
