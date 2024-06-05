@@ -29,15 +29,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>SEHR</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:350,420,500,600' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:350,350,500,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/assets/css/Highlight-Clean.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest"> -->
 
     <meta property="og:site_name" content="SEHR" />
     <meta property="og:type" content="video.other" />
@@ -54,11 +54,33 @@
     <meta name="twitter:image" content="https://dreamfusion3d.github.io/assets/images/dreamfusion_samples.png" /> -->
     <!-- <meta name="twitter:site" content="" /> -->
 
-    <script src="assets/js/video_comparison.js"></script>
+    <!-- <script src="assets/js/video_comparison.js"></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+    <script src="./js/bulma-carousel.min.js"></script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+    rel="stylesheet"> -->
+
+<link rel="stylesheet" href="./css/bulma.min.css">
+<link rel="stylesheet" href="./css/bulma-carousel.min.css">
+<link rel="stylesheet" href="./css/bulma-slider.min.css">
+<link rel="stylesheet" href="./css/twentytwenty.css">
+<link rel="stylesheet" href="./css/index.css">
+<link rel="icon" href="./images/gvkf-logo.svg">
+
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/jquery.event.move.js"></script>
+<script src="./js/jquery.twentytwenty.js"></script>
+<script src="./js/bulma-carousel.min.js"></script>
+<script src="./js/bulma-slider.min.js"></script>
+<script src="./js/fontawesome.all.min.js"></script>
+
+
 </head>
 
-<style>
+<!-- <style>
   .video-gallery-4 {
     max-width: 768px;
     margin: 0 auto;
@@ -68,7 +90,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  .video-gallery-4 .video-column {
+  .video-gallery-4 .column-wrapper {
     flex: 0 0 25%; /* Each column takes up one-third of the space */
     padding: 0px;
   }
@@ -88,7 +110,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  .video-gallery .video-column {
+  .video-gallery .column-wrapper {
     flex: 0 0 33.333%; /* Each column takes up one-third of the space */
     padding: 0px;
   }
@@ -97,10 +119,56 @@
     height: auto;
 
   }
-</style>
+</style> -->
   
+
+<!-- <style>
+  .column-wrapper {
+    position: relative;
+    width: 80%;
+    /* height: 100%; */
+    height: 100%;    /* 高度根据宽度自动比例调整 */
+    padding-bottom: 80%; 
+  }
+  .column-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resize the video to cover the entire container and crop extra parts */
+    transform: translateX(-10%) ; /* Trim the left and top 10% */
+  }
+</style> -->
+
+
+<style>
+  .trim-video {
+      width: 300;
+      height: 350;
+      clip-path: inset(0 30px 0 30px); /*上 右 下 左*/
+      
+  }
+</style>
+
+<style>
+
+.column-wrapper {
+  margin-right: -90px; /* 减少列之间的间距 */
+}
+</style>
+
+<!-- 
+<style>
+
+  .column-wrapper2 {
+    margin-right: -90px; /* 减少列之间的间距 */
+  }
+  </style>
+   -->
+
 <body>
-    <div class="highlight-clean" style="padding-bottom: 10px;">
+    <!-- <div class="highlight-clean" style="padding-bottom: 10px;">
                                 <br>
         <div class="container" style="max-width: 768px;">
             <h1 class="text-center">SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction</h1>
@@ -109,91 +177,263 @@
     <hr class="divider" />
     <div class="container" style="max-width: 768px;">
         <div class="row">
-            <div class="col-md-12">
                 <h2>Abstract</h2>
                 <p>
-                    <!-- <strong> -->
                         Single-view textured human reconstruction task aims at reconstructing a 3D digital human clothed body by inputting a single-view 2D image only. As the cornerstone of AR/VR technology, this task plays a crucial role in virtual world construction. Prevailing approaches can be categorized into training and optimization-based methods, where the former is limited by the scale of 3D human body data and the latter suffers from the incorrect hallucination of 2D diffusion models. To eliminate these issues, we propose a novel SMPL normal map Equipped 3D Human Reconstruction (SEHR) framework, which integrates human prior knowledge with a pretrained large 3D reconstruction model. Without using any diffusion model, SEHR performs single-view human reconstruction with one forward propagation. To be specific, the proposed SEHR consists of two branches, SMPL Normal Map Guidance (SNMG) and SMPL Normal Map Constraint (SNMG). The former incorporates SMPL normal maps into an auxiliary network to provide improved shape guidance for human Gaussian reconstruction, the latter enhances the human body's invisible parts by constraining the model to predict an extra SMPL normal Gaussian. Extensive quantitative and qualitative experiments on two public 3D human datasets have validated the effectiveness of our proposed SEHR.
                 </p>
+        </div>
+    </div>
+
+    <hr class="divider" /> -->
+
+
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-2 publication-title">SMPL Normal Map Is All You Need for Single-view Textured Human Reconstruction</h1>
+              <h3 class="title has-text-centered">Anonymous Author(s)</h3>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <hr class="divider" />
 
-    <div class="video-gallery-4" style="max-width: 768px;">
+
+    <section class="section pt-0">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Single-view textured human reconstruction task aims at reconstructing a 3D digital human clothed body by inputting a single-view 2D image only. As the cornerstone of AR/VR technology, this task plays a crucial role in virtual world construction. Prevailing approaches can be categorized into training and optimization-based methods, where the former is limited by the scale of 3D human body data and the latter suffers from the incorrect hallucination of 2D diffusion models. To eliminate these issues, we propose a novel SMPL normal map Equipped 3D Human Reconstruction (SEHR) framework, which integrates human prior knowledge with a pretrained large 3D reconstruction model. Without using any diffusion model, SEHR performs single-view human reconstruction with one forward propagation. To be specific, the proposed SEHR consists of two branches, SMPL Normal Map Guidance (SNMG) and SMPL Normal Map Constraint (SNMG). The former incorporates SMPL normal maps into an auxiliary network to provide improved shape guidance for human Gaussian reconstruction, the latter enhances the human body's invisible parts by constraining the model to predict an extra SMPL normal Gaussian. Extensive quantitative and qualitative experiments on two public 3D human datasets have validated the effectiveness of our proposed SEHR.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+
+
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Example generated humans</h2>
+        </div>
+        <div class="container" style="width: 1000px; height: 400px;"> 
+          <div id="results-carousel-horizontal" class="carousel results-carousel">
+    
+              <div class="column-wrapper">
+                <video autoplay loop playsinline muted class="trim-video" >
+                  <source src="meshes/gaussian_pred_0_131.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column-wrapper">
+              <video autoplay loop playsinline muted class="trim-video" >
+                <source src="meshes/gaussian_pred_0_218.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+
+                              <div class="column-wrapper">
+                <video autoplay loop playsinline muted class="trim-video" >
+                  <source src="meshes/gaussian_pred_0_215.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+
+                        <div class="column-wrapper">
+                          <video autoplay loop playsinline muted class="trim-video" >
+                            <source src="meshes/gaussian_pred_0_125.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+          
+
+              <div class="column-wrapper">
+                <video autoplay loop playsinline muted class="trim-video" >
+                  <source src="meshes/gaussian_pred_0_224.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+
+                                    <div class="column-wrapper">
+                                      <video autoplay loop playsinline muted class="trim-video" >
+                                        <source src="meshes/gaussian_pred_0_630.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+
+                                
+            <div class="column-wrapper">
+              <video autoplay loop playsinline muted class="trim-video" >
+                <source src="meshes/gaussian_pred_0_286.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column-wrapper">
+              <video autoplay loop playsinline muted class="trim-video" >
+                <source src="meshes/gaussian_pred_0_322.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <!-- <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Example generated humans</h2>
+        </div> -->
+        <div class="container"style="width: 1000px; height: 400px;"> 
+          <div id="results-carousel-horizontal" class="carousel results-carousel">
+
+              <div class="column-wrapper">
+                <video autoplay loop playsinline muted class="trim-video" >
+                  <source src="meshes/gaussian_pred_0_231.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+                        <div class="column-wrapper">
+                          <video autoplay loop playsinline muted class="trim-video" >
+                            <source src="meshes/gaussian_pred_0_560.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+        
+
+                <div class="column-wrapper">
+                  <video autoplay loop playsinline muted class="trim-video" >
+                    <source src="meshes/gaussian_pred_0_276.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+
+                                    <div class="column-wrapper">
+                                      <video autoplay loop playsinline muted class="trim-video" >
+                                        <source src="meshes/gaussian_pred_0_270.glb.mp4" type="video/mp4">
+                </video>
+            </div>   
+
+              <div class="column-wrapper">
+                <video autoplay loop playsinline muted class="trim-video" >
+                  <source src="meshes/gaussian_pred_0_12.glb.mp4" type="video/mp4">
+                    </video>
+            </div>
+                        <div class="column-wrapper">
+                          <video autoplay loop playsinline muted class="trim-video" >
+                            <source src="meshes/gaussian_pred_0_613.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column-wrapper">
+              <video autoplay loop playsinline muted class="trim-video" >
+                <source src="meshes/gaussian_pred_0_408.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column-wrapper">
+              <video autoplay loop playsinline muted class="trim-video" >
+                <source src="meshes/gaussian_pred_0_489.glb.mp4" type="video/mp4">
+                </video>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="columns is-centered has-text-centered">
+        <h3 class="caption"> The generated meshes of the proposed method from out-of-distribution cases. </h3>
+      </div>
+ -->
+
+ <div class="columns is-centered has-text-centered">
+  <p>
+          The generated meshes of the proposed method from out-of-distribution cases.
+                </p>
+      </div>
+      <br>
+      <!-- <br> -->
+
+              <!-- <div class="columns is-centered has-text-centered">
+          <h5 class="title is-3">The generated meshes of the proposed method from out-of-distribution cases.</h>
+        </div> -->
+    </section>
+
+
+    <!-- <div class="video-gallery-4" style="max-width: 768px;">
         <h2> Example generated humans</h2>
-        <div class="video-row" style="padding-left: -20px;">
-                <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
-                      <source src="meshes/gaussian_pred_0_131.glb.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
-                      <source src="meshes/gaussian_pred_0_218.glb.mp4" type="video/mp4">
-                    </video>
-                </div>
 
-                                  <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
-                      <source src="meshes/gaussian_pred_0_215.glb.mp4" type="video/mp4">
-                    </video>
-                </div>
+          <div class="video-row">
 
-                            <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
-                      <source src="meshes/gaussian_pred_0_125.glb.mp4" type="video/mp4">
-                    </video>
-                </div>
-            
+                  <div class="column-wrapper">
+                      <video width="300" height="350"  autoplay loop playsinline muted>
+                        <source src="meshes/gaussian_pred_0_131.glb.mp4" type="video/mp4">
+                      </video>
+                  </div>
+                  <div class="column-wrapper">
+                      <video width="300" height="350"  autoplay loop playsinline muted>
+                        <source src="meshes/gaussian_pred_0_218.glb.mp4" type="video/mp4">
+                      </video>
+                  </div>
 
+                                    <div class="column-wrapper">
+                      <video width="300" height="350"  autoplay loop playsinline muted>
+                        <source src="meshes/gaussian_pred_0_215.glb.mp4" type="video/mp4">
+                      </video>
+                  </div>
 
-            
-        </div>
+                              <div class="column-wrapper">
+                      <video width="300" height="350"  autoplay loop playsinline muted>
+                        <source src="meshes/gaussian_pred_0_125.glb.mp4" type="video/mp4">
+                      </video>
+                  </div>
+                
+          </div>
 
-    </div>
-
+    </div> -->
 
 
+<!-- 
         <div class="video-gallery-4" style="max-width: 768px;">
-<!--         <h2>More example generated humans</h2> -->
         <div class="video-row">
 
-                                  <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                                  <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_231.glb.mp4" type="video/mp4">
                     </video>
                 </div>
-                            <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                            <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_560.glb.mp4" type="video/mp4">
                     </video>
                 </div>
             
 
-                    <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_276.glb.mp4" type="video/mp4">
                     </video>
                 </div>
 
-                                         <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                                         <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_270.glb.mp4" type="video/mp4">
                     </video>
                 </div>   
         </div>
 
-    </div>
+    </div> -->
 
-        <div class="video-gallery-4" style="max-width: 768px;">
+        <!-- <div class="video-gallery-4" style="max-width: 768px;">
         <div class="video-row">
                     
 
 
-                <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_224.glb.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -201,50 +441,50 @@
 
 
 
-                                        <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                                        <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_630.glb.mp4" type="video/mp4">
                     </video>
                 </div>
 
                                     
-                <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_286.glb.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_322.glb.mp4" type="video/mp4">
                     </video>
                 </div>
                 </div>
         </div>
-    </div>
+    </div> -->
 
     
 
-
+<!-- 
     <div class="video-gallery-4" style="max-width: 768px;">
         <div class="video-row">
 
-                                        <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                                        <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_12.glb.mp4" type="video/mp4">
                         </video>
                 </div>
-                            <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                            <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_613.glb.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_408.glb.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
-                    <video width="350" height="350" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_489.glb.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -253,203 +493,417 @@
 
             
         </div>
+    </div> -->
+
+    <!-- <hr class="divider" /> -->
+    <!-- <br> -->
+    <br>
+
+
+        <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Compared with the SOTA method</h2>
+        </div>
+        <div class="container" style="max-width: 900px;">
+          <div id="results-carousel-horizontal-2" class="carousel results-carousel" >
+
+
+
+
+                <div class="column-wrapper2">
+                      
+                  <h5 class="text-center"><a class="text-center">Input image</a></h5>
+
+                  <img src="comp_sith/ood_input_images_0_0.jpg" alt="" style="max-width: 100%; height: auto;">
+
+              </div>
+
+
+              <div class="column-wrapper2">
+                  
+                  <h5 class="text-center" style="text-decoration: underline; color: blue;"><a class="text-center" href="https://sith-diffusion.github.io/">SiTH</a></h5>
+
+                  
+                  <video width="300" height="350"  autoplay loop playsinline muted>
+                    <source src="comp_sith/000_reco.obj.mp4" type="video/mp4">
+                  </video>
+              </div>
+              <div class="column-wrapper2">
+                  <h5 class="text-center"><a class="text-center">Ours</a></h5>
+
+                  <video width="300" height="350"  autoplay loop playsinline muted>
+                    <source src="comp_sith/gaussian_pred_0_0.glb.mp4" type="video/mp4">
+                  </video>
+              </div>
+
+
+                <div class="column-wrapper2">
+
+                  <h5 class="text-center"><a class="text-center">Input image</a></h5>
+
+                  <img src="comp_sith/ood_input_images_0_24.jpg" alt="" style="max-width: 100%; height: auto;">
+
+              </div>
+              <div class="column-wrapper2">
+
+                <h5 class="text-center" style="text-decoration: underline; color: blue;"><a class="text-center" href="https://sith-diffusion.github.io/">SiTH</a></h5>
+
+                  <video width="300" height="350"  autoplay loop playsinline muted>
+                    <source src="comp_sith/0024_000_0276_00062_07_00121_reco.obj.mp4" type="video/mp4">
+                  </video>
+              </div>
+              <div class="column-wrapper2">
+
+                <h5 class="text-center"><a class="text-center">Ours</a></h5>
+
+                  <video width="300" height="350"  autoplay loop playsinline muted>
+                    <source src="meshes/gaussian_pred_0_276.glb.mp4" type="video/mp4">
+                  </video>
+              </div>
+
+
+              
+                      <div class="column-wrapper2">
+                        <h5 class="text-center"><a class="text-center">Input image</a></h5>
+
+                          <img src="comp_sith/ood_input_images_0_19.jpg" alt="" style="max-width: 100%; height: auto;">
+      
+                      </div>
+                      <div class="column-wrapper2">
+                        <h5 class="text-center" style="text-decoration: underline; color: blue;"><a class="text-center" href="https://sith-diffusion.github.io/">SiTH</a></h5>
+
+                          <video width="300" height="350"  autoplay loop playsinline muted>
+                            <source src="comp_sith/0019_000_0197_00046_01_00141_reco.obj.mp4" type="video/mp4">
+                          </video>
+                      </div>
+                      <div class="column-wrapper2">
+                        <h5 class="text-center"><a class="text-center">Ours</a></h5>
+
+                          <video width="300" height="350"  autoplay loop playsinline muted>
+                            <source src="comp_sith/gaussian_pred_0_19.glb.mp4" type="video/mp4">
+                          </video>
+                      </div>
+      
+
+
+              
+
+                      <div class="column-wrapper2">
+                        <h5 class="text-center"><a class="text-center">Input image</a></h5>
+
+                          <img src="comp_sith/ood_input_images_0_27.jpg" alt="" style="max-width: 100%; height: auto;">
+      
+                      </div>
+                      <div class="column-wrapper2">
+                        <h5 class="text-center" style="text-decoration: underline; color: blue;"><a class="text-center" href="https://sith-diffusion.github.io/">SiTH</a></h5>
+
+                          <video width="300" height="350"  autoplay loop playsinline muted>
+                            <source src="comp_sith/0027_000_0333_00067_04_00061_reco.obj.mp4" type="video/mp4">
+                          </video>
+                      </div>
+                      <div class="column-wrapper2">
+                        <h5 class="text-center"><a class="text-center">Ours</a></h5>
+
+                          <video width="300" height="350"  autoplay loop playsinline muted>
+                            <source src="comp_sith/gaussian_pred_0_27.glb.mp4" type="video/mp4">
+                          </video>
+                      </div>
+
+              
+          </div>
+      
+
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+    
+
+
+    
+
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+
+        <div class="container" style="max-width: 900px;">
+          <div id="results-carousel-horizontal-2" class="carousel results-carousel" >
+
+
+            <div class="column-wrapper2">
+              <img src="comp_sith/ood_input_images_0_6.jpg" alt="" style="max-width: 100%; height: auto;">
+
+          </div>
+          <div class="column-wrapper2">
+              <video width="300" height="350"  autoplay loop playsinline muted>
+                <source src="comp_sith/006_reco.obj.mp4" type="video/mp4">
+              </video>
+          </div>
+          <div class="column-wrapper2">
+
+              <video width="300" height="350"  autoplay loop playsinline muted>
+                <source src="comp_sith/gaussian_pred_0_6.glb.mp4" type="video/mp4">
+              </video>
+          </div>
+
+
+          <div class="column-wrapper2">
+            <img src="comp_sith/ood_input_images_0_58.jpg" alt="" style="max-width: 100%; height: auto;">
+
+        </div>
+        <div class="column-wrapper2">
+            <video width="300" height="350"  autoplay loop playsinline muted>
+              <source src="comp_sith/0058_000_0637_00095_02_00081_reco.obj.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="column-wrapper2">
+
+            <video width="300" height="350"  autoplay loop playsinline muted>
+              <source src="comp_sith/gaussian_pred_0_58.glb.mp4" type="video/mp4">
+            </video>
+        </div>
+              
+
+
+        <div class="column-wrapper2">
+          <img src="comp_sith/ood_input_images_0_2.jpg" alt="" style="max-width: 100%; height: auto;">
+
+      </div>
+      <div class="column-wrapper2">
+          <video width="300" height="350"  autoplay loop playsinline muted>
+            <source src="comp_sith/0002_000_0019_00010_11_00141_reco.obj.mp4" type="video/mp4">
+          </video>
+      </div>
+      <div class="column-wrapper2">
+
+          <video width="300" height="350"  autoplay loop playsinline muted>
+            <source src="comp_sith/gaussian_pred_0_2.glb.mp4" type="video/mp4">
+          </video>
+      </div>
+
+      <div class="column-wrapper2">
+        <img src="comp_sith/ood_input_images_0_44.jpg" alt="" style="max-width: 100%; height: auto;">
+
+    </div>
+    <div class="column-wrapper2">
+        <video width="300" height="350"  autoplay loop playsinline muted>
+          <source src="comp_sith/0044_000_0478_00075_03_00081_reco.obj.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="column-wrapper2">
+
+        <video width="300" height="350"  autoplay loop playsinline muted>
+          <source src="comp_sith/gaussian_pred_0_44.glb.mp4" type="video/mp4">
+        </video>
     </div>
 
+          </div>
+      
+
+          </div>
+        </div>
+      </div>
+
+
+    </section>
 
     
 
-    
-    <hr class="divider" />
-
-    <div class="video-gallery-4" style="max-width: 768px;">
+    <!-- <div class="video-gallery-4" style="max-width: 768px;">
             <h2>  Compared with the SOTA method</h2>
 
                         <br>
         <div class="video-row">
-                <div class="video-column">
+                <div class="column-wrapper">
                     
                     <h5 class="text-center"><a class="text-center">Input image</a></h5>
 
-                    <img src="comp_sith/000.png" alt="" style="max-width: 82%; height: auto;";">
+                    <img src="comp_sith/000.png" alt="" style="max-width: 100%; height: auto;";">
 
                 </div>
-                <div class="video-column">
+                <div class="column-wrapper">
                     
                     <h5 class="text-center"><a class="text-center" href="https://sith-diffusion.github.io/">SiTH</a></h5>
 
                     
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/000_reco.obj.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
+                <div class="column-wrapper">
                     <h5 class="text-center"><a class="text-center">Ours</a></h5>
 
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/gaussian_pred_0_0.glb.mp4" type="video/mp4">
                     </video>
                 </div>
         </div>
 
-    </div>
+    </div> -->
 
 
 
-    <div class="video-gallery-4" style="max-width: 768px;">
+
+
+
+    <!-- <div class="video-gallery-4" style="max-width: 768px;">
         <div class="video-row">
-                <div class="video-column">
-                    <img src="comp_sith/006.png" alt="" style="max-width: 82%; height: auto;">
+                <div class="column-wrapper">
+                    <img src="comp_sith/006.png" alt="" style="max-width: 100%; height: auto;">
 
                 </div>
-                <div class="video-column">
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/006_reco.obj.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
+                <div class="column-wrapper">
 
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/gaussian_pred_0_6.glb.mp4" type="video/mp4">
                     </video>
                 </div>
         </div>
 
-    </div>
+    </div> -->
 
 
-   
+<!--    
 
                 <div class="video-gallery-4" style="max-width: 768px;">
         <div class="video-row">
-                <div class="video-column">
+                <div class="column-wrapper">
                     <img src="comp_sith/ood_input_images_0_24.jpg" alt="" style="max-width: 100%; height: auto;">
 
                 </div>
-                <div class="video-column">
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/0024_000_0276_00062_07_00121_reco.obj.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
+                <div class="column-wrapper">
 
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="meshes/gaussian_pred_0_276.glb.mp4" type="video/mp4">
                     </video>
                 </div>
         </div>
 
-    </div>
+    </div> -->
 
-    
+<!--     
             <div class="video-gallery-4" style="max-width: 768px;">
         <div class="video-row">
-                <div class="video-column">
+                <div class="column-wrapper">
                     <img src="comp_sith/ood_input_images_0_58.jpg" alt="" style="max-width: 100%; height: auto;">
 
                 </div>
-                <div class="video-column">
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/0058_000_0637_00095_02_00081_reco.obj.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
+                <div class="column-wrapper">
 
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/gaussian_pred_0_58.glb.mp4" type="video/mp4">
                     </video>
                 </div>
         </div>
 
-    </div>
+    </div> -->
 
-
+<!-- 
             <div class="video-gallery-4" style="max-width: 768px;">
         <div class="video-row">
-                <div class="video-column">
+                <div class="column-wrapper">
                     <img src="comp_sith/ood_input_images_0_19.jpg" alt="" style="max-width: 100%; height: auto;">
 
                 </div>
-                <div class="video-column">
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/0019_000_0197_00046_01_00141_reco.obj.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
+                <div class="column-wrapper">
 
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/gaussian_pred_0_19.glb.mp4" type="video/mp4">
                     </video>
                 </div>
         </div>
 
-    </div>
+    </div> -->
 
     
 
             
-        <div class="video-gallery-4" style="max-width: 768px;">
+        <!-- <div class="video-gallery-4" style="max-width: 768px;">
         <div class="video-row">
-                <div class="video-column">
+                <div class="column-wrapper">
                     <img src="comp_sith/ood_input_images_0_2.jpg" alt="" style="max-width: 100%; height: auto;">
 
                 </div>
-                <div class="video-column">
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/0002_000_0019_00010_11_00141_reco.obj.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
+                <div class="column-wrapper">
 
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/gaussian_pred_0_2.glb.mp4" type="video/mp4">
                     </video>
                 </div>
         </div>
 
-    </div>
-
+    </div> -->
+<!-- 
 
             <div class="video-gallery-4" style="max-width: 768px;">
         <div class="video-row">
-                <div class="video-column">
+                <div class="column-wrapper">
                     <img src="comp_sith/ood_input_images_0_27.jpg" alt="" style="max-width: 100%; height: auto;">
 
                 </div>
-                <div class="video-column">
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/0027_000_0333_00067_04_00061_reco.obj.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
+                <div class="column-wrapper">
 
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/gaussian_pred_0_27.glb.mp4" type="video/mp4">
                     </video>
                 </div>
-        </div>
+        </div> -->
 
-    </div>
+    <!-- </div>
     
         <div class="video-gallery-4" style="max-width: 768px;">
         <div class="video-row">
-                <div class="video-column">
+                <div class="column-wrapper">
                     <img src="comp_sith/ood_input_images_0_44.jpg" alt="" style="max-width: 100%; height: auto;">
 
                 </div>
-                <div class="video-column">
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                <div class="column-wrapper">
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/0044_000_0478_00075_03_00081_reco.obj.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-column">
+                <div class="column-wrapper">
 
-                    <video width="420" height="420" class="video lazy d-none d-xs-none d-sm-block" autoplay loop playsinline muted>
+                    <video width="300" height="350"  autoplay loop playsinline muted>
                       <source src="comp_sith/gaussian_pred_0_44.glb.mp4" type="video/mp4">
                     </video>
                 </div>
         </div>
 
-    </div>
+    </div> -->
 
 
 
@@ -471,43 +925,94 @@
     </div>
   </div>   -->
 
-    <hr class="divider" />
+    <!-- <hr class="divider" />
 
     <div class="container" style="max-width: 768px;">
         <div class="row">
-            <div class="col-md-12">
                 <h2>How SEHR works</h2>
                 <br>
               <img src="ours_pipeline.png" alt="" style="max-width: 100%; height: auto;">
 
-            </div>
         </div>
-    </div>
+    </div> -->
 
 
 
-
+<!-- 
     
     <div class="container" style="max-width: 768px;">
         <div class="row">
             <div class="col-md-12">
                 <br>
                                 <p>
-                    <!-- <strong> -->
                  The pipeline of our SEHR. Based on the RGB SHGM model, SEHR introduces an extra HGM as a side branch to extract the human body prior within the orthogonal SMPL normal maps and provide shape guidance for Gaussian learning, which we refer to as SMPL Normal Map Guidance (SNMG). Additionally, we propose using the back, left, and right views of SMPL normal maps to constrain the optimization to detail in the invisible parts of the human body, naming this operation SMPL Normal Map Constraint (SNMC). SNMG and SNMC are the key components of our method.
                 
                                 </p>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 
+    <!-- <hr class="divider" /> -->
+    <br>
+
+    <section class="section pt-0">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">How SEHR works</h2>
+              <img src="ours_pipeline.png" alt="" style="max-width: 100%; height: auto;">
+            <br>
+            <br>
+
+            <div class="content has-text-justified">
+              <p>
+                The pipeline of our SEHR. Based on the RGB SHGM model, SEHR introduces an extra HGM as a side branch to extract the human body prior within the orthogonal SMPL normal maps and provide shape guidance for Gaussian learning, which we refer to as SMPL Normal Map Guidance (SNMG). Additionally, we propose using the back, left, and right views of SMPL normal maps to constrain the optimization to detail in the invisible parts of the human body, naming this operation SMPL Normal Map Constraint (SNMC). SNMG and SNMC are the key components of our method.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+
+
+    
+<script>
+  $(window).on('load', function() {
+    bulmaCarousel.attach('#results-carousel-horizontal', {
+      slidesToScroll: 1,
+      slidesToShow: 4,
+      loop: false,
+      autoplay: false,
+    });
+
+
+    bulmaCarousel.attach('#results-carousel-horizontal-2', {
+      slidesToScroll: 3,
+      slidesToShow: 3,
+      loop: false,
+      autoplay: false,
+    });
+
+
+    // bulmaCarousel.attach('#results-carousel-vertical', {
+    //   slidesToScroll: 1,
+    //   slidesToShow: 5,
+    //   loop: true,
+    //   autoplay: true,
+    // });
+
+  });
+</script>
     
 
     
     <hr class="divider" />
-
+<!-- 
     <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
     <script src="/assets/js/yall.js"></script>
     <script>
@@ -520,7 +1025,7 @@
     <script src="/assets/js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script>
+    <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script> -->
     <!-- Import the component -->
 </body>
 
